@@ -17,8 +17,16 @@ public:
 	ATank* GetControlledTank() const;
 	
 	ATank* GetPlayerTank() const;
-
+	
+	// How close can the AI tank get
+	UPROPERTY(EditDefaultsOnly, Category = "Setup")
+	float AcceptanceRadius = 8000;
+	
 	void BeginPlay() override;
+	
+private:
+	virtual void SetPawn(APawn* InPawn) override;
 
 	virtual void Tick(float DeltaSeconds) override;
+	
 };
